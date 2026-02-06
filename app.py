@@ -1,5 +1,5 @@
 import streamlit as st
-import as genai
+import genai
 
 # 1. Setup your Free Google Key from Secrets
 # Make sure you add "GOOGLE_API_KEY" to your Streamlit Secrets!
