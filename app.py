@@ -34,7 +34,7 @@ challenge = st.text_area("What is your current business challenge?")
 
 if st.button(f"Generate {expert_type} Insights"):
     if challenge:
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash')
         with st.spinner("Lumina is thinking..."):
             response = model.generate_content(f"{persona}\n\nUser: {challenge}")
             st.markdown("### Lumina Insights")
