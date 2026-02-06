@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # Setup Google Key from Secrets
 try:
-    api_key = st.secrets[GOOGLE_API_KEY]
+    api_key = st.secrets["GOOGLE_API_KEY"]
     genai.configure(api_key=api_key)
 except KeyError:
     st.error("Missing GOOGLE_API_KEY in Streamlit Secrets! Please add it to your secrets configuration.")
