@@ -2,11 +2,15 @@ import streamlit as st
 import google.generativeai as genai
 
 # Setup Google Key from Secrets
-# Ensure you have GOOGLE_API_KEY in your Streamlit Secrets!
-if "GOOGLE_API_KEY" in st.secrets:
-    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-else:
-    st.error("Missing Google API Key in Secrets!")
+try:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+    genai.configure(api_key=api_key)
+except KeyError:
+    st.error("Missing GOOGLE_API_KEY in Streamlit Secrets! Please add it to your secrets configuration.")
+    st.stop()
+except Exception as e:
+    st.error(f"Error configuring Google API: {str(e)}")
+    st.stop()
 
 # Sidebar for Expert Selection
 with st.sidebar:
